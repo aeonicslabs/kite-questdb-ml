@@ -23,7 +23,9 @@ from config.settings import get_settings
 
 logger = logging.getLogger(__name__)
 
-ENV_FILE = Path(".env")
+# Always resolve .env relative to the project root (parent of this file's directory)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+ENV_FILE = PROJECT_ROOT / ".env"
 
 
 def get_authenticated_kite() -> KiteConnect:
