@@ -5,7 +5,11 @@ Run this once, or on startup — QuestDB CREATE TABLE IF NOT EXISTS is idempoten
 from __future__ import annotations
 
 import logging
+import sys
 from pathlib import Path
+
+# Ensure project root is on sys.path regardless of where script is invoked from
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import psycopg2
 
