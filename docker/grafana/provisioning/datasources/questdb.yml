@@ -1,0 +1,17 @@
+apiVersion: 1
+datasources:
+  - name: QuestDB
+    type: postgres
+    url: questdb:8812
+    database: main
+    user: admin
+    secureJsonData:
+      password: quest
+    jsonData:
+      sslmode: disable
+      maxOpenConns: 10
+      maxIdleConns: 5
+      connMaxLifetime: 14400
+      postgresVersion: 1200
+      timescaledb: false
+    isDefault: true

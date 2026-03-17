@@ -1,0 +1,32 @@
+# Core
+kiteconnect>=5.0.1
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+
+# QuestDB
+questdb>=2.0.0
+
+# Database connectivity
+psycopg2-binary>=2.9.0
+pandas>=2.0.0
+
+# ML
+xgboost>=2.0.0
+torch>=2.2.0          # Apple Silicon: use nightly for best MPS support
+scikit-learn>=1.4.0
+numpy>=1.26.0
+
+# ML tracking
+mlflow>=2.11.0
+
+# Async
+asyncio-throttle>=1.0.2
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+
+# Utilities
+polars>=0.20.0        # fast DataFrames for feature prep
+pyarrow>=15.0.0
