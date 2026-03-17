@@ -6,14 +6,19 @@ from __future__ import annotations
 
 import os
 from functools import lru_cache
+from pathlib import Path
 from typing import List, Optional
 
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+# Project root = parent of this file's directory (config/)
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+_ENV_FILE = str(_PROJECT_ROOT / ".env")
+
 
 class KiteSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="KITE_", extra="ignore")
+    model_config = SettingsConfigDict(env_prefix="KITE_", env_file=_ENV_FILE, env_file_encoding="utf-8", extra="ignore")
 
     api_key: str = Field(..., description="Kite Connect API key")
     api_secret: str = Field(..., description="Kite Connect API secret")
@@ -112,7 +117,7 @@ class AppSettings(BaseSettings):
 class Settings(BaseSettings):
     """Root settings — composes all sub-settings."""
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=_ENV_FILE,
         env_file_encoding="utf-8",
         extra="ignore",
     )
